@@ -5,7 +5,6 @@ import Article from './components/articles/Article';
 import Articles from './components/articles/Articles';
 import ArticleForm from './components/articles/ArticleForm';
 
-
 const App = () => {
   return (
     <div>

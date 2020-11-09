@@ -18,7 +18,7 @@ const ArticleForm = ({history}) => {
         if (response.ok) {
           alert('Article successfully created')
           return response.json()
-            .then(artile => {
+            .then(article => {
               history.push(`/articles/${article._id}`)
             })
       }
