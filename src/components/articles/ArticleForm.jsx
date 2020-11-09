@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 
 const ArticleForm = ({history}) => {
   const initialState = { title: '', text: '' };
   const [values, setValues] = useState(initialState);
-  const handleSubmit = (e) =>{
+  const handleSubmit = e =>{
+
+
     e.preventDefault();
 
     fetch('/articles', {
@@ -15,10 +17,9 @@ const ArticleForm = ({history}) => {
       .then(response => {
         if (response.ok) {
           alert('Article successfully created')
-          setValues(initialState)
           return response.json()
             .then(artile => {
-              history.pushState(`/articles/${article._id}`)
+              history.push(`/articles/${article._id}`)
             })
       }
     })

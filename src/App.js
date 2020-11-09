@@ -6,7 +6,7 @@ import Articles from './components/articles/Articles';
 import ArticleForm from './components/articles/ArticleForm';
 
 
-const ArticleRoute = () => {
+const App = () => {
   return (
     <div>
       <BrowserRouter>
@@ -19,8 +19,8 @@ const ArticleRoute = () => {
     </Switch>
   </Container>
 </BrowserRouter>
-    </div>
+ </div>
   )
 }
 
-export default ArticleRoute;
+export default App;
