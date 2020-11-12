@@ -16,5 +16,7 @@ connection.once('open', () => console.log("MongoDB connection established."));
 
 
 server.use(express.json());
-server.use(express.urlencoded({ extended: false }));
+server.use(express.urlencoded({
+  extended: false
+}));
 server.use('/articles', articleRouter);

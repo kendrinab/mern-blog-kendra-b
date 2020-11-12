@@ -4,26 +4,24 @@ import { Form, Button } from 'react-bootstrap';
 const ArticleForm = ({history}) => {
   const initialState = { title: '', text: '' };
   const [values, setValues] = useState(initialState);
-  const handleSubmit = e =>{
-
+  const handleSubmit = (e) =>{
 
     e.preventDefault();
 
     fetch('/articles', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values)
+      body: JSON.stringify(values),
     })
       .then(response => {
         if (response.ok) {
-          alert('Article successfully created')
-          return response.json()
-            .then(article => {
-              history.push(`/articles/${article._id}`)
-            })
+          alert('Article successfully created');
+          return response.json().then((article) => {
+              history.push(`/articles/${article._id}`);
+            });
       }
     })
-    .catch(error => alert(error))
+    .catch(error => alert(error));
   };
   return (
   <div>
@@ -34,7 +32,7 @@ const ArticleForm = ({history}) => {
           type="text"
           placeholder="Title of your article..."
           required={true}
-          onChange={e => setValues({...values, title: e.target.value})}
+          onChange={(e) => setValues({...values, title: e.target.value})}
         />
       </Form.Group>
       <Form.Group>
@@ -47,12 +45,14 @@ const ArticleForm = ({history}) => {
           onChange={e => setValues({...values, text: e.target.value})}
       />
       </Form.Group>
+
+
       <Button variant="primary" type="submit">
           Submit
       </Button>
     </Form>
   </div>
-  )
-}
+  );
+};
 
 export default ArticleForm;

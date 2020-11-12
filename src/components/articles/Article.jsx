@@ -1,8 +1,7 @@
 import React, {useState, useEffect}from 'react';
 
 const Article = ({match}) => {
-
-  const [article, setArticle] = useState({});
+const [article, setArticle] = useState({});
 
   useEffect(() => {
     fetch(`/articles/${match.params.articleId}`)
@@ -10,8 +9,7 @@ const Article = ({match}) => {
       .then(article => setArticle(article))
       .catch(error => alert(error));
   });
-
-  return (
+return (
     <article>
       <h1>{article.title}</h1>
       <p>{article.text}</p>
