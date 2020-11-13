@@ -1,13 +1,13 @@
-import React, {useState, useEffect}from 'react';
+import React, {useState, useEffect} from 'react';
 
 const Article = ({match}) => {
-const [article, setArticle] = useState({});
+const [article, setArticle] = useState({})
 
   useEffect(() => {
     fetch(`/articles/${match.params.articleId}`)
       .then(response => response.json())
       .then(article => setArticle(article))
-      .catch(error => alert(error));
+      .catch(error => alert(error))
   });
 return (
     <article>

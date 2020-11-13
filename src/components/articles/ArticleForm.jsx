@@ -11,13 +11,14 @@ const ArticleForm = ({history}) => {
     fetch('/articles', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(values),
+      body: JSON.stringify(values)
     })
       .then(response => {
         if (response.ok) {
-          alert('Article successfully created');
-          return response.json().then((article) => {
-              history.push(`/articles/${article._id}`);
+          alert('Article successfully created')
+          return response.json()
+          .then((article) => {
+              history.push(`/articles/${article._id}`)
             });
       }
     })
